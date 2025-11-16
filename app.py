@@ -13,7 +13,7 @@ DATA_FILE = "data.csv"
 def init_data_file():
     """Create CSV with header if it does not exist."""
     if not os.path.exists(DATA_FILE):
-        with open(DATA_FILE, mode="w", newline="", encoding="utf-8") as f:
+        with open(DATA_FILE, mode="a", newline="", encoding="utf-8") as f:
             writer = csv.writer(f)
             writer.writerow(["participant_id", "age", "experience", "comments"])
 
@@ -54,4 +54,5 @@ def thanks():
 if __name__ == "__main__":
     # debug=True is handy during development; remove or set to False in production
     app.run(debug=True)
+
 
