@@ -4,6 +4,9 @@ import os
 
 app = Flask(__name__)
 
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+DATA_FILE = os.path.join(BASE_DIR, "data.csv")
+
 DATA_FILE = "data.csv"
 
 
@@ -51,3 +54,4 @@ def thanks():
 if __name__ == "__main__":
     # debug=True is handy during development; remove or set to False in production
     app.run(debug=True)
+
