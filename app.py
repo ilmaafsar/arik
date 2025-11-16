@@ -29,18 +29,25 @@ def about():
 @app.route("/survey", methods=["GET", "POST"])
 def survey():
     if request.method == "POST":
+        app.logger.info("Received POST to /survey")
+
         participant_id = request.form.get("participant_id", "").strip()
         age = request.form.get("age", "").strip()
         experience = request.form.get("experience", "").strip()
         comments = request.form.get("comments", "").strip()
 
-        init_data_file()
-        with open(DATA_FILE, mode="a", newline="", encoding="utf-8") as f:
-            writer = csv.writer(f)
-            writer.writerow([participant_id, age, experience, comments])
+        try:
+            init_data_file()
+            with open(DATA_FILE, mode="a", newline="", encoding="utf-8") as f:
+                writer = csv.writer(f)
+                writer.writerow([participant_id, age, experience, comments])
+            app.logger.info("Wrote one row to data.csv")
+        except Exception as e:
+            app.logger.error(f"Error writing CSV: {e}")
 
         return redirect(url_for("thanks"))
 
+    # GET request
     return render_template("survey.html")
 
 
@@ -52,6 +59,7 @@ def thanks():
 if __name__ == "__main__":
     # debug=True is handy during development; remove or set to False in production
     app.run(debug=True)
+
 
 
 
