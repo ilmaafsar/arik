@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, send_file
 import csv
 import os
 
@@ -55,10 +55,21 @@ def survey():
 def thanks():
     return render_template("thanks.html")
 
+@app.route("/download")
+def download_data():
+    # Send the current CSV file to the browser as a download
+    return send_file(
+        DATA_FILE,
+        mimetype="text/csv",
+        download_name="data.csv",
+        as_attachment=True,
+    )
+
 
 if __name__ == "__main__":
     # debug=True is handy during development; remove or set to False in production
     app.run(debug=True)
+
 
 
 
