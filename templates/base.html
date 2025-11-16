@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Research Study{% endblock title %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<header>
+    <h1>Research Study Website</h1>
+    <nav>
+        <a href="{{ url_for('index') }}">Home</a> |
+        <a href="{{ url_for('about') }}">About</a> |
+        <a href="{{ url_for('survey') }}">Take Survey</a>
+    </nav>
+    <hr>
+</header>
+
+<main>
+    {% block content %}{% endblock content %}
+</main>
+
+<footer>
+    <hr>
+    <p>&copy; {{ 2025 }} Research Team</p>
+</footer>
+</body>
+</html>

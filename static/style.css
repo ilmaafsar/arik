@@ -1,0 +1,24 @@
+body {
+    font-family: Arial, sans-serif;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+header h1 {
+    margin-bottom: 0.2rem;
+}
+
+nav a {
+    margin-right: 0.5rem;
+    text-decoration: none;
+    color: #0366d6;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+label {
+    font-weight: bold;
+}

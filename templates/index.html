@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block title %}Home - Research Study{% endblock title %}
+
+{% block content %}
+<h2>Welcome</h2>
+<p>Welcome to our research study website. Please read the information sheet and then take the survey if you consent to participate.</p>
+<p><a href="{{ url_for('survey') }}">Go to the survey</a></p>
+{% endblock content %}

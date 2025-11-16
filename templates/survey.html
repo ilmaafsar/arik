@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}Survey{% endblock title %}
+
+{% block content %}
+<h2>Participant Survey</h2>
+
+<form method="post" action="{{ url_for('survey') }}">
+    <label for="participant_id">Participant ID (or code):</label><br>
+    <input type="text" id="participant_id" name="participant_id" required><br><br>
+
+    <label for="age">Age:</label><br>
+    <input type="number" id="age" name="age" min="18" max="100" required><br><br>
+
+    <label for="experience">How experienced are you with websites?</label><br>
+    <select id="experience" name="experience" required>
+        <option value="">--Select--</option>
+        <option value="Beginner">Beginner</option>
+        <option value="Intermediate">Intermediate</option>
+        <option value="Advanced">Advanced</option>
+    </select><br><br>
+
+    <label for="comments">Any comments about this interface?</label><br>
+    <textarea id="comments" name="comments" rows="4" cols="50"></textarea><br><br>
+
+    <button type="submit">Submit</button>
+</form>
+{% endblock content %}
